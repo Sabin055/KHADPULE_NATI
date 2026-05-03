@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             userManagerToolStripMenuItem = new ToolStripMenuItem();
             userDetailToolStripMenuItem = new ToolStripMenuItem();
@@ -93,6 +94,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(972, 450);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

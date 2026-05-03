@@ -20,5 +20,23 @@ namespace KHADPULE_NATI
             }
             return conn;
         }
+        public static DataTable GetTableByQuery(string Sqlquery)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = GetConnection();
+                command.CommandText = Sqlquery;
+                command.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

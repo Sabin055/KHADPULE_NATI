@@ -19,7 +19,9 @@ namespace KHADPULE_NATI
 
         private void memberEntryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MemberForm WF = new MemberForm();
+            WF.Show();
+            
         }
     }
 }

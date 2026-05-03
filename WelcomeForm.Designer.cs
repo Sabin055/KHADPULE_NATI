@@ -31,7 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
             hometab = new TabControl();
             memberentrytab = new TabPage();
-            dateTimePicker1 = new DateTimePicker();
+            txtdob = new TextBox();
+            chkstatus = new CheckBox();
+            txtstatus = new Label();
+            membergridview = new DataGridView();
+            btnview = new Button();
             cmbGender = new ComboBox();
             Fname = new Label();
             txtFullName = new TextBox();
@@ -54,8 +58,10 @@
             panel2 = new Panel();
             panel1 = new Panel();
             label1 = new Label();
+            textBox1 = new TextBox();
             hometab.SuspendLayout();
             memberentrytab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)membergridview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -68,12 +74,17 @@
             hometab.Location = new Point(0, 99);
             hometab.Name = "hometab";
             hometab.SelectedIndex = 0;
-            hometab.Size = new Size(1243, 387);
+            hometab.Size = new Size(1243, 649);
             hometab.TabIndex = 0;
             // 
             // memberentrytab
             // 
-            memberentrytab.Controls.Add(dateTimePicker1);
+            memberentrytab.Controls.Add(textBox1);
+            memberentrytab.Controls.Add(txtdob);
+            memberentrytab.Controls.Add(chkstatus);
+            memberentrytab.Controls.Add(txtstatus);
+            memberentrytab.Controls.Add(membergridview);
+            memberentrytab.Controls.Add(btnview);
             memberentrytab.Controls.Add(cmbGender);
             memberentrytab.Controls.Add(Fname);
             memberentrytab.Controls.Add(txtFullName);
@@ -96,17 +107,62 @@
             memberentrytab.Location = new Point(4, 24);
             memberentrytab.Name = "memberentrytab";
             memberentrytab.Padding = new Padding(3);
-            memberentrytab.Size = new Size(1235, 359);
+            memberentrytab.Size = new Size(1235, 621);
             memberentrytab.TabIndex = 1;
             memberentrytab.Text = "Member Entry";
             memberentrytab.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // txtdob
             // 
-            dateTimePicker1.Location = new Point(945, 175);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(8, 23);
-            dateTimePicker1.TabIndex = 32;
+            txtdob.Location = new Point(545, 110);
+            txtdob.Name = "txtdob";
+            txtdob.Size = new Size(200, 23);
+            txtdob.TabIndex = 16;
+            // 
+            // chkstatus
+            // 
+            chkstatus.AutoSize = true;
+            chkstatus.Location = new Point(545, 264);
+            chkstatus.Name = "chkstatus";
+            chkstatus.Size = new Size(59, 19);
+            chkstatus.TabIndex = 36;
+            chkstatus.Text = "Active";
+            chkstatus.UseVisualStyleBackColor = true;
+            // 
+            // txtstatus
+            // 
+            txtstatus.AutoSize = true;
+            txtstatus.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtstatus.Location = new Point(427, 260);
+            txtstatus.Name = "txtstatus";
+            txtstatus.Size = new Size(55, 21);
+            txtstatus.TabIndex = 35;
+            txtstatus.Text = "Status";
+            // 
+            // membergridview
+            // 
+            membergridview.AllowUserToOrderColumns = true;
+            membergridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            membergridview.BackgroundColor = SystemColors.ButtonFace;
+            membergridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            membergridview.Dock = DockStyle.Bottom;
+            membergridview.GridColor = SystemColors.InactiveCaption;
+            membergridview.Location = new Point(3, 434);
+            membergridview.Name = "membergridview";
+            membergridview.Size = new Size(1229, 184);
+            membergridview.TabIndex = 34;
+            membergridview.CellContentClick += membergridview_CellContentClick;
+            // 
+            // btnview
+            // 
+            btnview.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnview.Location = new Point(425, 339);
+            btnview.Name = "btnview";
+            btnview.Size = new Size(94, 35);
+            btnview.TabIndex = 25;
+            btnview.Text = "View";
+            btnview.UseVisualStyleBackColor = true;
+            btnview.Click += btnview_Click;
             // 
             // cmbGender
             // 
@@ -140,7 +196,7 @@
             txtGroupName.Location = new Point(545, 197);
             txtGroupName.Name = "txtGroupName";
             txtGroupName.Size = new Size(200, 23);
-            txtGroupName.TabIndex = 20;
+            txtGroupName.TabIndex = 19;
             // 
             // txtAddress
             // 
@@ -158,45 +214,46 @@
             // 
             // dtpJoinDate
             // 
-            dtpJoinDate.Location = new Point(545, 226);
+            dtpJoinDate.Location = new Point(769, 226);
             dtpJoinDate.Name = "dtpJoinDate";
             dtpJoinDate.Size = new Size(200, 23);
-            dtpJoinDate.TabIndex = 21;
+            dtpJoinDate.TabIndex = 38;
             // 
             // btnUpdate
             // 
             btnUpdate.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdate.Location = new Point(509, 271);
+            btnUpdate.Location = new Point(509, 298);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(86, 35);
-            btnUpdate.TabIndex = 25;
+            btnUpdate.TabIndex = 22;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // dtpDOB
             // 
-            dtpDOB.Location = new Point(545, 110);
+            dtpDOB.Location = new Point(769, 110);
             dtpDOB.Name = "dtpDOB";
             dtpDOB.Size = new Size(200, 23);
-            dtpDOB.TabIndex = 16;
+            dtpDOB.TabIndex = 37;
             // 
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(427, 271);
+            btnSave.Location = new Point(427, 298);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(76, 35);
-            btnSave.TabIndex = 23;
+            btnSave.TabIndex = 21;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClear
             // 
             btnClear.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(702, 271);
+            btnClear.Location = new Point(702, 298);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 35);
-            btnClear.TabIndex = 29;
+            btnClear.TabIndex = 24;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
             // 
@@ -213,10 +270,10 @@
             // btnDelete
             // 
             btnDelete.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(601, 271);
+            btnDelete.Location = new Point(601, 298);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(95, 35);
-            btnDelete.TabIndex = 28;
+            btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
@@ -287,7 +344,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1248, 487);
+            panel2.Size = new Size(1248, 749);
             panel2.TabIndex = 20;
             // 
             // panel1
@@ -311,13 +368,20 @@
             label1.TabIndex = 18;
             label1.Text = "KHADPULE NATI SAMUHA";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(545, 226);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(200, 23);
+            textBox1.TabIndex = 20;
+            // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1248, 487);
+            ClientSize = new Size(1248, 749);
             Controls.Add(panel1);
             Controls.Add(panel2);
             HelpButton = true;
@@ -329,6 +393,7 @@
             hometab.ResumeLayout(false);
             memberentrytab.ResumeLayout(false);
             memberentrytab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)membergridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -340,7 +405,6 @@
 
         private TabControl hometab;
         private TabPage memberentrytab;
-        private DateTimePicker dateTimePicker1;
         private ComboBox cmbGender;
         private Label Fname;
         private TextBox txtFullName;
@@ -363,5 +427,11 @@
         private Panel panel2;
         private Panel panel1;
         private Label label1;
+        private Button btnview;
+        private DataGridView membergridview;
+        private CheckBox chkstatus;
+        private Label txtstatus;
+        private TextBox txtdob;
+        private TextBox textBox1;
     }
 }
