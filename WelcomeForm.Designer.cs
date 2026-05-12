@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
             hometab = new TabControl();
             memberentrytab = new TabPage();
+            txtjoindate = new TextBox();
             txtdob = new TextBox();
             chkstatus = new CheckBox();
             txtstatus = new Label();
@@ -42,9 +43,7 @@
             txtGroupName = new TextBox();
             txtAddress = new TextBox();
             txtPhone = new TextBox();
-            dtpJoinDate = new DateTimePicker();
             btnUpdate = new Button();
-            dtpDOB = new DateTimePicker();
             btnSave = new Button();
             btnClear = new Button();
             Gender = new Label();
@@ -58,7 +57,6 @@
             panel2 = new Panel();
             panel1 = new Panel();
             label1 = new Label();
-            textBox1 = new TextBox();
             hometab.SuspendLayout();
             memberentrytab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)membergridview).BeginInit();
@@ -79,7 +77,7 @@
             // 
             // memberentrytab
             // 
-            memberentrytab.Controls.Add(textBox1);
+            memberentrytab.Controls.Add(txtjoindate);
             memberentrytab.Controls.Add(txtdob);
             memberentrytab.Controls.Add(chkstatus);
             memberentrytab.Controls.Add(txtstatus);
@@ -91,9 +89,7 @@
             memberentrytab.Controls.Add(txtGroupName);
             memberentrytab.Controls.Add(txtAddress);
             memberentrytab.Controls.Add(txtPhone);
-            memberentrytab.Controls.Add(dtpJoinDate);
             memberentrytab.Controls.Add(btnUpdate);
-            memberentrytab.Controls.Add(dtpDOB);
             memberentrytab.Controls.Add(btnSave);
             memberentrytab.Controls.Add(btnClear);
             memberentrytab.Controls.Add(Gender);
@@ -112,6 +108,13 @@
             memberentrytab.Text = "Member Entry";
             memberentrytab.UseVisualStyleBackColor = true;
             // 
+            // txtjoindate
+            // 
+            txtjoindate.Location = new Point(545, 226);
+            txtjoindate.Name = "txtjoindate";
+            txtjoindate.Size = new Size(200, 23);
+            txtjoindate.TabIndex = 20;
+            // 
             // txtdob
             // 
             txtdob.Location = new Point(545, 110);
@@ -125,7 +128,7 @@
             chkstatus.Location = new Point(545, 264);
             chkstatus.Name = "chkstatus";
             chkstatus.Size = new Size(59, 19);
-            chkstatus.TabIndex = 36;
+            chkstatus.TabIndex = 21;
             chkstatus.Text = "Active";
             chkstatus.UseVisualStyleBackColor = true;
             // 
@@ -143,7 +146,7 @@
             // 
             membergridview.AllowUserToOrderColumns = true;
             membergridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            membergridview.BackgroundColor = SystemColors.ButtonFace;
+            membergridview.BackgroundColor = SystemColors.Window;
             membergridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             membergridview.Dock = DockStyle.Bottom;
             membergridview.GridColor = SystemColors.InactiveCaption;
@@ -156,9 +159,9 @@
             // btnview
             // 
             btnview.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnview.Location = new Point(425, 339);
+            btnview.Location = new Point(802, 298);
             btnview.Name = "btnview";
-            btnview.Size = new Size(94, 35);
+            btnview.Size = new Size(76, 35);
             btnview.TabIndex = 25;
             btnview.Text = "View";
             btnview.UseVisualStyleBackColor = true;
@@ -212,13 +215,6 @@
             txtPhone.Size = new Size(200, 23);
             txtPhone.TabIndex = 17;
             // 
-            // dtpJoinDate
-            // 
-            dtpJoinDate.Location = new Point(769, 226);
-            dtpJoinDate.Name = "dtpJoinDate";
-            dtpJoinDate.Size = new Size(200, 23);
-            dtpJoinDate.TabIndex = 38;
-            // 
             // btnUpdate
             // 
             btnUpdate.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -228,13 +224,6 @@
             btnUpdate.TabIndex = 22;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // dtpDOB
-            // 
-            dtpDOB.Location = new Point(769, 110);
-            dtpDOB.Name = "dtpDOB";
-            dtpDOB.Size = new Size(200, 23);
-            dtpDOB.TabIndex = 37;
             // 
             // btnSave
             // 
@@ -256,6 +245,7 @@
             btnClear.TabIndex = 24;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // Gender
             // 
@@ -276,6 +266,7 @@
             btnDelete.TabIndex = 23;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // DOB
             // 
@@ -368,13 +359,6 @@
             label1.TabIndex = 18;
             label1.Text = "KHADPULE NATI SAMUHA";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(545, 226);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 20;
-            // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -411,9 +395,7 @@
         private TextBox txtGroupName;
         private TextBox txtAddress;
         private TextBox txtPhone;
-        private DateTimePicker dtpJoinDate;
         private Button btnUpdate;
-        private DateTimePicker dtpDOB;
         private Button btnSave;
         private Button btnClear;
         private Label Gender;
@@ -432,6 +414,6 @@
         private CheckBox chkstatus;
         private Label txtstatus;
         private TextBox txtdob;
-        private TextBox textBox1;
+        private TextBox txtjoindate;
     }
 }
