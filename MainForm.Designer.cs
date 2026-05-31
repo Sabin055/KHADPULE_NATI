@@ -47,6 +47,7 @@
             menuStrip1.Size = new Size(972, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // userManagerToolStripMenuItem
             // 
@@ -71,7 +72,7 @@
             // memberEntryToolStripMenuItem
             // 
             memberEntryToolStripMenuItem.Name = "memberEntryToolStripMenuItem";
-            memberEntryToolStripMenuItem.Size = new Size(180, 22);
+            memberEntryToolStripMenuItem.Size = new Size(149, 22);
             memberEntryToolStripMenuItem.Text = "Member Entry";
             memberEntryToolStripMenuItem.Click += memberEntryToolStripMenuItem_Click;
             // 
@@ -100,6 +101,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             WindowState = FormWindowState.Maximized;
+            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -115,5 +117,6 @@
         private ToolStripMenuItem memberEntryToolStripMenuItem;
         private ToolStripMenuItem reportToolStripMenuItem;
         private ToolStripMenuItem memberReportToolStripMenuItem;
+        private Button button1;
     }
 }

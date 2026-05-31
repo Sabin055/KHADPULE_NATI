@@ -21,7 +21,19 @@ namespace KHADPULE_NATI
         {
             MemberForm WF = new MemberForm();
             WF.Show();
-            
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //LoginForm lf = new LoginForm();
+            //lf.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
